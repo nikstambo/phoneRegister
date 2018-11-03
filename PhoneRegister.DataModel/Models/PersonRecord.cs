@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PhoneRegister.Models {
-    class PersonRecord : Record {
+    class PersonRecord : PhoneRecord {
         protected override int RecordId { get; set; }
         protected override string PhoneNumber { get; set; }
         protected override string Name { get; set; }

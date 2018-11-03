@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PhoneRegisterLocalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PhoneRegisterLocalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="PhoneRecords">
           <Key>
             <PropertyRef Name="RecordId" />
@@ -18,15 +18,13 @@
         <EntityContainer Name="PhoneRegisterLocalModelStoreContainer">
           <EntitySet Name="PhoneRecords" EntityType="Self.PhoneRecords" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PhoneRegisterLocalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="PhoneRecord">
           <Key>
-            <PropertyRef Name="PhoneNumber" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="IdentificationNumber" />
             <PropertyRef Name="RecordId" />
           </Key>
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -35,7 +33,7 @@
           <Property Name="IdentificationNumber" Type="Int32" Nullable="false" />
           <Property Name="RecordId" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="PhoneRegisterLocalEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PhoneRegisterLocalEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PhoneRecords" EntityType="Self.PhoneRecord" />
         </EntityContainer>
       </Schema>
@@ -43,7 +41,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PhoneRegisterLocalModelStoreContainer" CdmEntityContainer="PhoneRegisterLocalEntities">
+        <EntityContainerMapping StorageEntityContainer="PhoneRegisterLocalModelStoreContainer" CdmEntityContainer="PhoneRegisterLocalEntities1">
           <EntitySetMapping Name="PhoneRecords">
             <EntityTypeMapping TypeName="PhoneRegisterLocalModel.PhoneRecord">
               <MappingFragment StoreEntitySet="PhoneRecords">

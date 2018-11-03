@@ -53,54 +53,52 @@
     <Compile Include="Models\PersonRecord.cs" />
     <Compile Include="Models\PhoneRecord.cs" />
     <Compile Include="PhoneRecord.cs">
-      <DependentUpon>PRDataModel.tt</DependentUpon>
+      <DependentUpon>PhoneRecordsDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PhoneRecordRepository.cs" />
+    <Compile Include="PhoneRecordsDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhoneRecordsDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhoneRecordsDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhoneRecordsDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhoneRecordsDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhoneRecordsDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="PRContext.cs" />
-    <Compile Include="PRDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PRDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PRDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PRDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PRDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PRDataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="PRDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PRDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <None Include="PRDataModel.edmx.diagram">
-      <DependentUpon>PRDataModel.edmx</DependentUpon>
+    <EntityDeploy Include="PhoneRecordsDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PhoneRecordsDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PhoneRecordsDataModel.edmx.diagram">
+      <DependentUpon>PhoneRecordsDataModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PRDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PRDataModel.Context.cs</LastGenOutput>
-      <DependentUpon>PRDataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="PRDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PRDataModel.edmx</DependentUpon>
-      <LastGenOutput>PRDataModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="PhoneRecordsDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PhoneRecordsDataModel.edmx</DependentUpon>
+      <LastGenOutput>PhoneRecordsDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PhoneRecordsDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PhoneRecordsDataModel.edmx</DependentUpon>
+      <LastGenOutput>PhoneRecordsDataModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

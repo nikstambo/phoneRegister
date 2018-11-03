@@ -13,10 +13,10 @@ namespace PhoneRegister.DataModel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PhoneRegisterLocalEntities : DbContext
+    public partial class PhoneRegisterLocalEntities1 : DbContext
     {
-        public PhoneRegisterLocalEntities()
-            : base("name=PhoneRegisterLocalEntities")
+        public PhoneRegisterLocalEntities1()
+            : base("name=PhoneRegisterLocalEntities1")
         {
         }
     
