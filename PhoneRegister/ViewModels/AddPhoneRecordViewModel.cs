@@ -60,7 +60,6 @@ namespace PhoneRegister.ViewModels {
             ConvertEditableRecord();
 
             var errors = await IsEntryValid(recordForSaving);
-
             if (!errors.Any()) {
                 await _repo.UpdateRecordAsync(recordForSaving);
                 Done(string.Empty);
@@ -118,11 +117,19 @@ namespace PhoneRegister.ViewModels {
             Dictionary<bool,string> errorMsgs = new Dictionary<bool, string> ();
 
             List<PhoneRecord> allRecords = await _repo.GetAllPhoneRecords();
+
+            if (EditMode) {
+                if (allRecords.Select(r => r.PhoneRecordId).ToList().Contains(record.PhoneRecordId)) {
+                    var recordToRemove = allRecords.Where(r => r.PhoneRecordId == record.PhoneRecordId).SingleOrDefault();
+                    allRecords.Remove(recordToRemove);
+                }
+            }
+
             bool invalidIdNumber = allRecords
                 .Where(r => r.IdentificationNumber == record.IdentificationNumber).Any();
+
             bool duplicateName = allRecords
-                .Where(r => r.Name == record.Name &&
-                    r.Surname == record.Surname)
+                .Where(r => r.Name == record.Name && r.Surname == record.Surname)
                 .Any();
 
             if(invalidIdNumber) {
@@ -130,7 +137,6 @@ namespace PhoneRegister.ViewModels {
             } else if (duplicateName) {
                 errorMsgs.Add(false, "Record was not saved. Duplicate name.");
             }
-
             return errorMsgs;
         }
 

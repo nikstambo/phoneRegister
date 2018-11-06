@@ -56,6 +56,7 @@ namespace PhoneRegister.ViewModels
 
         private void NavToViewAllRecords(string errorMessage) {
             phoneRecordsViewModel.AddErrorMessage(errorMessage);
+            phoneRecordsViewModel.SetSelectionToNull();
             CurrentViewModel = phoneRecordsViewModel;
         }
 

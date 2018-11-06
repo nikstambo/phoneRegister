@@ -34,12 +34,11 @@ namespace PhoneRegister.ViewModels {
 
         public PhoneRecord SelectedRecord {
             get { return selectedRecord; }
-            set { if(value != null) {
-                    selectedRecord = value;
-                    RaisePropertyChanged("SelectedRecord");
-                    EditRecordCommand.RaiseCanExecuteChanged();
-                    DeleteRecordCommand.RaiseCanExecuteChanged();
-                }
+            set {
+                selectedRecord = value;
+                RaisePropertyChanged("SelectedRecord");
+                EditRecordCommand.RaiseCanExecuteChanged();
+                DeleteRecordCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -121,7 +120,7 @@ namespace PhoneRegister.ViewModels {
         }
 
         private bool IsRecordSelected() {
-            return SelectedRecord !=null;
+            return SelectedRecord != null ;
         }
 
         public event Action<PhoneRecord> AddRecordRequested = delegate { };
@@ -139,6 +138,7 @@ namespace PhoneRegister.ViewModels {
         private async void OnDeleteRecord() {
             await _repo.DeleteRecordAsync(SelectedRecord.PhoneRecordId);
             Records.Remove(SelectedRecord);
+            SetSelectionToNull();
         }
 
         private void OnClearSearch() {
@@ -172,6 +172,10 @@ namespace PhoneRegister.ViewModels {
                 HasErrorMessage = false;
                 RaisePropertyChanged("HasErrorMessage");
             }
+        }
+
+        public void SetSelectionToNull() {
+            SelectedRecord = null;
         }
     }
 }
