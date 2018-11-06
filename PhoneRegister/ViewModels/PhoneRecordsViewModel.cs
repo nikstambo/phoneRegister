@@ -158,7 +158,8 @@ namespace PhoneRegister.ViewModels {
                 Records = new ObservableCollection<PhoneRecord>(allRecords
                     .Where(r => r.Name.ToLower().Contains(searchInput.ToLower()) ||
                             r.Surname.ToLower().Contains(searchInput.ToLower()) ||
-                            r.PhoneNumber.ToLower().Contains(searchInput.ToLower())));
+                            r.PhoneNumber.ToLower().Contains(searchInput.ToLower()) ||
+                            r.IdentificationNumber.ToLower().Contains(searchInput.ToLower())));
             }
         }
 

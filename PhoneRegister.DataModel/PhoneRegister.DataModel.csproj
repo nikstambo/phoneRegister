@@ -54,6 +54,10 @@
     <Compile Include="Migrations\201811042152361_Initial.Designer.cs">
       <DependentUpon>201811042152361_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811061259488_idNum2String.cs" />
+    <Compile Include="Migrations\201811061259488_idNum2String.Designer.cs">
+      <DependentUpon>201811061259488_idNum2String.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PhoneRecord.cs" />
     <Compile Include="PhoneRecordRepository.cs" />
@@ -68,6 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811042152361_Initial.resx">
       <DependentUpon>201811042152361_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811061259488_idNum2String.resx">
+      <DependentUpon>201811061259488_idNum2String.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

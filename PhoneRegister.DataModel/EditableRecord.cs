@@ -13,7 +13,7 @@ namespace PhoneRegister.DataModel {
         private string name;
         private string surname;
         private string phoneNumber;
-        private int identificationNumber;
+        private string identificationNumber;
 
 
         public int PhoneRecordId {
@@ -44,7 +44,7 @@ namespace PhoneRegister.DataModel {
 
         [Required]
         [RegularExpression("^\\d+$", ErrorMessage ="Must contain positive integers only!")]
-        public int IdentificationNumber {
+        public string IdentificationNumber {
             get { return identificationNumber; }
             set { SetProperty(ref identificationNumber, value); }
         }
