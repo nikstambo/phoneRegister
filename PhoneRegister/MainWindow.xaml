@@ -4,15 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PhoneRegister"
+        xmlns:views="clr-namespace:PhoneRegister.Views"
+        xmlns:viewModels="clr-namespace:PhoneRegister.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="475" Width="800">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:PhoneRecordsViewModel}">
+            <views:PhoneRecordsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:AddPhoneRecordViewModel}">
+            <views:AddPhoneRecordView/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        <Menu HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="792">
-            <MenuItem Header="Phone Records">
-                <MenuItem Header="View all records"/>
-                <MenuItem Header="Add / Edit a record"/>
-            </MenuItem>
-        </Menu>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+      
 
+        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

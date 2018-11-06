@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{165F6FF0-2215-462E-A9D2-599D6C5C9082}</ProjectGuid>
+    <ProjectGuid>{F7C9C396-8315-45B1-9F80-14275D9002AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PhoneRegister.DataModel</RootNamespace>
@@ -32,16 +32,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,55 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\PersonRecord.cs" />
-    <Compile Include="Models\PhoneRecord.cs" />
-    <Compile Include="PhoneRecord.cs">
-      <DependentUpon>PhoneRecordsDataModel.tt</DependentUpon>
+    <Compile Include="BaseINPC.cs" />
+    <Compile Include="EditableRecord.cs" />
+    <Compile Include="Migrations\201811042152361_Initial.cs" />
+    <Compile Include="Migrations\201811042152361_Initial.Designer.cs">
+      <DependentUpon>201811042152361_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PhoneRecord.cs" />
     <Compile Include="PhoneRecordRepository.cs" />
-    <Compile Include="PhoneRecordsDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhoneRecordsDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PhoneRecordsDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhoneRecordsDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PhoneRecordsDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhoneRecordsDataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="PRContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidatableBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="PhoneRecordsDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PhoneRecordsDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="PhoneRecordsDataModel.edmx.diagram">
-      <DependentUpon>PhoneRecordsDataModel.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="PhoneRecordsDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PhoneRecordsDataModel.edmx</DependentUpon>
-      <LastGenOutput>PhoneRecordsDataModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PhoneRecordsDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PhoneRecordsDataModel.edmx</DependentUpon>
-      <LastGenOutput>PhoneRecordsDataModel.cs</LastGenOutput>
-    </Content>
+    <EmbeddedResource Include="Migrations\201811042152361_Initial.resx">
+      <DependentUpon>201811042152361_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
