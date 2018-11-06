@@ -128,14 +128,17 @@ namespace PhoneRegister.ViewModels {
         public event Action<PhoneRecord> DeleteRecordRequested = delegate { };
 
         private void OnAddRecord() {
+            ErrorMessage = null;
             AddRecordRequested(new PhoneRecord());
         }
 
         private void OnEditRecord() {
+            ErrorMessage = null;
             EditRecordRequested(SelectedRecord);
         }
 
         private async void OnDeleteRecord() {
+            ErrorMessage = null;
             await _repo.DeleteRecordAsync(SelectedRecord.PhoneRecordId);
             Records.Remove(SelectedRecord);
             SetSelectionToNull();
